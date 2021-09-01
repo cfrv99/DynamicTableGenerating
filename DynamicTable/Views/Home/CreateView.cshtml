@@ -1,0 +1,17 @@
+﻿@model CreateModel
+@{
+    ViewData["Title"] = "CreateView";
+}
+
+<form action="/Home/CreateView" method="post">
+    @{int i = 0; }
+    @foreach (var item in Model.TableHeaders)
+    {
+        <label>@item.HeaderName</label>
+        <input asp-for="Parameters[i].Value" />
+        <input hidden asp-for="Parameters[i].Key" value="@item.Id"/>
+        i++;
+    }
+    <button>Submit</button>
+</form>
+
